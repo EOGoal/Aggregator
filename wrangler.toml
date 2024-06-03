@@ -1,0 +1,18 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "eo-goal-aggregator"
+main = "src/index.ts"
+compatibility_date = "2024-05-29"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "eo-goal-db"
+database_id = "c1ecba34-0c21-4698-9fb6-5452189fb751"
+
+[[queues.producers]]
+queue = "eo-goal-queue"
+binding = "QUEUE"
+
+[[queues.consumers]]
+queue = "eo-goal-queue"
+max_batch_size = 100
+max_batch_timeout = 30
